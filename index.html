@@ -1,14 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebGIS Kabupaten Sukoharjo</title>
 
     <!-- Leaflet CSS -->
-    <link rel="stylesheet"
-        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
     <style>
         body {
@@ -142,6 +141,15 @@
 
         wmsLayer2.addTo(map);
 
+        var wmsLayer3 = L.Geoserver.wms(geoserver, {
+            layers: "pgweb:kec_sukoharjo",
+            transparent: true,
+            format: "image/png",
+            zIndex: 1005
+        });
+
+        wmsLayer3.addTo(map);
+
 
         // =====================================
         // 6. LEGENDA JUMLAH PENDUDUK
@@ -204,4 +212,5 @@
     </script>
 
 </body>
+
 </html>
